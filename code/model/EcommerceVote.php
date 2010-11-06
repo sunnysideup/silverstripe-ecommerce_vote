@@ -55,7 +55,6 @@ class EcommerceVote extends DataObject {
 
 
 	function requireDefaultRecords() {
-		if(Director::isDev()) {debug::show("setting up required records for EcommerceVote");}
 		parent::requireDefaultRecords();
 		$objects = DataObject::get("EcommerceVote", $filter = "", $sort = "Created DESC", $join = "", $limit = "0, 1000");
 		$array = array();
@@ -78,11 +77,9 @@ class EcommerceVote extends DataObject {
 			$array = self::get_array_of_classes_used();
 			if(!is_array($array)|| !count($array)) {
 				$array = array("SiteTree");
-				if(Director::isDev()) {debug::show("adding default votes to all pages");}
 			}
 			if(count($array)) {
 				foreach($array as $className) {
-					if(Director::isDev()) {debug::show("setting up votes for $className");}
 					$pages = DataObject::get($className, "EcommerceVote.ID IS NULL", $sort = "", $join = "LEFT JOIN EcommerceVote on EcommerceVote.PageID = SiteTree.ID");
 					if($pages) {
 						foreach($pages as $page) {
@@ -99,16 +96,16 @@ class EcommerceVote extends DataObject {
 						}
 					}
 					else {
-						if(Director::isDev()) {debug::show("no pages for $className");}
+						DB::alteration_message("no pages for $className", "deleted");
 					}
 				}
 			}
 			else {
-				if(Director::isDev()) {debug::show("classname array is empty");}
+				DB::alteration_message("classname array is empty", "deleted");
 			}
 		}
 		else {
-			if(Director::isDev()) {debug::show("not creating defaiults in EcommerceVote");}
+			DB::alteration_message("not creating defaiults in EcommerceVote", "deleted");
 		}
 	}
 
