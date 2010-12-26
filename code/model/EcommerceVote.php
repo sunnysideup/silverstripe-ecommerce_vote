@@ -105,7 +105,7 @@ class EcommerceVote extends DataObject {
 			}
 		}
 		else {
-			DB::alteration_message("not creating defaiults in EcommerceVote", "deleted");
+			DB::alteration_message("not creating defaults in EcommerceVote", "deleted");
 		}
 	}
 
