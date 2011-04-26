@@ -117,9 +117,11 @@ class EcommerceVote extends DataObject {
 
 	public static $summary_fields = array("Page.Title");
 
-	public static $singular_name = "Ecommerce Vote";
+	public static $singular_name = "Vote";
+		function i18n_single_name() { return _t("EcommerceVote.ECOMMERCEVOTE", "Vote");}
 
-	public static $plural_name = "Ecommerce Votes";
+	public static $plural_name = "Votes";
+		function i18n_plural_name() { return _t("EcommerceVote.ECOMMERCEVOTES", "Votes");}
 
 
 }
