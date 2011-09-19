@@ -109,8 +109,6 @@ class EcommerceVote extends DataObject {
 		}
 	}
 
-	public static $casting = array(); //adds computed fields that can also have a type (e.g.
-
 	public static $searchable_fields = array("PageID");
 
 	public static $field_labels = array("PageID" => "Page");
