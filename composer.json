@@ -2,7 +2,6 @@
     "name": "sunnysideup/ecommerce_vote",
     "type": "silverstripe-module",
     "description": "allows users to vote for products within the framework for Silverstripe e-commerce",
-
     "license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
     "authors": [
         {
@@ -12,9 +11,15 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~2.4"
+        "silverstripe/framework": "~2.4",
+        "silverstripe/cms": "~2.4"
     },
     "extra": {
         "installer-name": "ecommerce_vote"
-    }
+    },
+    "keywords": [
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe"
+    ]
 }
